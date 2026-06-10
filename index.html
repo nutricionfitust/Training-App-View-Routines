@@ -11,7 +11,6 @@
 <meta name="apple-mobile-web-app-title" content="NFU Training App">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-/* ====== VARIABLES ====== */
 :root{
   --blue:#0072FB;--blue-50:#eff6ff;--blue-100:#dbeafe;--blue-200:#bfdbfe;--blue-700:#1d4ed8;--blue-800:#1e40af;--blue-900:#1e3a5f;
   --green-bg:#ecfdf5;--green-border:#34d399;--green-txt:#065f46;--green-bar:#d1fae5;
@@ -26,7 +25,6 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:linear-gradient(135de
 button{font-family:inherit;cursor:pointer}
 a{color:var(--blue)}
 
-/* ====== HEADER ====== */
 .header{background:rgba(255,255,255,.92);backdrop-filter:blur(12px);padding:16px 20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.08)}
 .header h1{font-size:1.6rem;font-weight:800;color:var(--blue-800)}
 .header h1 a{color:inherit;text-decoration:none}
@@ -34,14 +32,13 @@ a{color:var(--blue)}
 .header h2{font-size:1rem;font-weight:600;color:var(--blue-700);margin-top:2px}
 .header p{font-size:.85rem;color:#3b82f6;margin-top:6px;max-width:600px;margin-left:auto;margin-right:auto}
 
-/* ====== MAIN CONTAINER ====== */
 .main{max-width:900px;margin:24px auto;padding:0 16px 60px}
 .card{background:rgba(255,255,255,.96);backdrop-filter:blur(8px);border-radius:16px;box-shadow:0 8px 32px rgba(0,0,0,.08);padding:28px;animation:fadeUp .4s ease-out}
 @keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
 
-/* ====== LOGIN ====== */
 .login-card{max-width:440px;margin:0 auto;text-align:center}
-.login-icon{width:64px;height:64px;margin:0 auto 16px;color:var(--blue)}
+.login-icon{width:72px;height:72px;margin:0 auto 16px;border-radius:50%;overflow:hidden;background:var(--blue-50);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.login-icon svg{width:40px;height:40px}
 .login-card h3{font-size:1.25rem;font-weight:800;color:var(--blue-800);margin-bottom:6px}
 .login-card .sub{font-size:.85rem;color:#64748b;margin-bottom:20px}
 .pass-input{width:100%;border:2px solid var(--blue-200);border-radius:12px;padding:14px 16px;font-size:1rem;text-align:center;transition:border-color .2s ease}
@@ -53,15 +50,15 @@ a{color:var(--blue)}
 .wa-btn{display:inline-block;background:linear-gradient(to left,#22c55e,#15803d);color:#fff;padding:14px 28px;border-radius:14px;font-weight:700;font-size:.95rem;text-decoration:none;margin-top:20px;box-shadow:0 4px 16px rgba(0,0,0,.1);transition:transform .15s ease}
 .wa-btn:hover{transform:translateY(-2px)}
 
-/* ====== ROUTINE VIEW ====== */
-.routine-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:20px}
+.routine-header{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin-bottom:4px}
 .routine-header h3{font-size:1.2rem;font-weight:800;color:var(--blue-800)}
-.routine-header .meta{font-size:.8rem;color:#64748b}
 .routine-actions{display:flex;gap:8px;align-items:center}
-.routine-actions button,.routine-actions a{background:transparent;border:1px solid var(--blue-200);color:var(--blue-700);padding:8px 14px;border-radius:10px;font-size:.8rem;font-weight:600;text-decoration:none;transition:all .2s ease}
-.routine-actions button:hover,.routine-actions a:hover{background:var(--blue-50);border-color:var(--blue)}
+.routine-actions button{background:transparent;border:1px solid var(--blue-200);color:var(--blue-700);padding:8px 14px;border-radius:10px;font-size:.8rem;font-weight:600;transition:all .2s ease}
+.routine-actions button:hover{background:var(--blue-50);border-color:var(--blue)}
+.greeting{background:var(--blue-50);border:1px solid var(--blue-200);border-radius:12px;padding:14px 16px;margin-bottom:16px;font-size:.88rem;color:var(--blue-900);line-height:1.5}
+.greeting strong{display:block;font-size:1rem;margin-bottom:4px}
+.tip{font-size:.78rem;color:#64748b;margin-bottom:14px;font-style:italic}
 
-/* ====== DAY CARDS ====== */
 .day{border:1px solid #e2e8f0;border-radius:var(--radius);margin-bottom:12px;overflow:hidden;animation:fadeUp .3s ease-out}
 .day-header{display:flex;align-items:center;gap:10px;padding:14px 16px;background:linear-gradient(135deg,var(--blue-50),var(--blue-100));cursor:pointer;transition:background .2s ease;user-select:none}
 .day-header:hover{background:var(--blue-100)}
@@ -69,11 +66,11 @@ a{color:var(--blue)}
 .day-header .arrow{transition:transform .3s ease;color:var(--blue-700);font-size:1.1rem;flex:none}
 .day-header.open .arrow{transform:rotate(90deg)}
 .day-header h4{flex:1;font-size:.95rem;font-weight:700;color:var(--blue-800)}
+.day-count{font-size:.72rem;color:var(--blue-700);background:var(--blue-200);padding:3px 8px;border-radius:999px;font-weight:600;white-space:nowrap}
 .day-body{max-height:0;overflow:hidden;transition:max-height .4s cubic-bezier(.22,.61,.36,1)}
 .day-body.open{max-height:none;overflow:visible}
 .day-body-inner{padding:12px 16px 16px}
 
-/* ====== SECTIONS (color bars) ====== */
 .section{position:relative;padding-left:18px;margin-top:14px}
 .section::before{content:'';position:absolute;left:0;top:0;bottom:0;width:5px;border-radius:999px}
 .section.green::before{background:var(--green-bar);border:1px solid var(--green-border)}
@@ -84,7 +81,6 @@ a{color:var(--blue)}
 .sec-header.red{background:var(--red-bg);border:1px solid var(--red-border);color:var(--red-txt)}
 .sec-header.yellow{background:var(--yellow-bg);border:1px solid var(--yellow-border);color:var(--yellow-txt)}
 
-/* ====== EXERCISE CARDS ====== */
 .ex-card{background:linear-gradient(135deg,var(--blue-50),var(--blue-100));border:1px solid var(--blue-200);border-radius:10px;padding:10px 12px;margin-bottom:8px;transition:all .15s ease;cursor:pointer}
 .ex-card:hover{background:linear-gradient(135deg,var(--blue-100),var(--blue-200))}
 .ex-card:active{transform:scale(.995)}
@@ -95,7 +91,6 @@ a{color:var(--blue)}
 .ex-nota{font-size:.75rem;color:#475569;font-style:italic;margin-top:4px}
 .badge-rest{display:inline-flex;align-items:center;gap:4px;font-size:.7rem;font-weight:600;padding:3px 8px;border-radius:999px;color:var(--rest-txt);background:var(--rest-bg);border:1px solid var(--rest-border);white-space:nowrap}
 
-/* ====== DESCRIPTION (collapsible) ====== */
 .desc-box{background:#fff;border:1px solid #dbeafe;border-radius:8px;padding:6px 10px;margin-top:6px;cursor:pointer}
 .dots-btn{display:inline-flex;gap:3px;padding:4px 6px;border-radius:6px;border:none;background:transparent;transition:background .15s ease}
 .dots-btn:hover{background:#f1f5f9}
@@ -105,18 +100,32 @@ a{color:var(--blue)}
 .desc-panel>div{min-height:0}
 .desc-text{font-size:.78rem;color:#475569;line-height:1.5;padding-top:6px}
 
-/* ====== SUPERSET CARD ====== */
 .superset{border-radius:var(--radius);background:var(--purple-bg);border:1px solid var(--purple-border);box-shadow:var(--shadow);padding:12px;margin-bottom:8px;transition:transform .2s ease}
 .superset:hover{transform:translateY(-2px)}
 .superset-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap;gap:4px}
 .superset-label{font-size:.85rem;font-weight:700;color:var(--purple-txt)}
 .superset-sub{font-size:.72rem;color:#7c3aed}
 
-/* ====== HIIT INFO ====== */
 .hiit-info{background:var(--yellow-bg);border:1px solid var(--yellow-border);border-radius:10px;padding:10px 12px;margin-top:8px;font-size:.82rem;color:var(--yellow-txt);line-height:1.5}
 .hiit-info strong{display:block;margin-bottom:4px}
 
-/* ====== MODAL (video) ====== */
+/* MÁS INFORMACIÓN (purple folder) */
+.info-folder{border-radius:var(--radius);background:var(--purple-bg);border:1px solid var(--purple-border);box-shadow:var(--shadow);margin-top:20px;overflow:hidden}
+.info-folder-header{padding:14px 16px;cursor:pointer;display:flex;align-items:center;gap:10px;transition:background .2s ease;user-select:none}
+.info-folder-header:hover{background:rgba(139,92,246,.08)}
+.info-folder-header:active{transform:scale(.998)}
+.info-folder-header .arrow{transition:transform .3s ease;color:var(--purple-txt);font-size:1rem}
+.info-folder-header.open .arrow{transform:rotate(90deg)}
+.info-folder-header h4{font-size:.95rem;font-weight:700;color:var(--purple-txt)}
+.info-folder-header p{font-size:.75rem;color:#7c3aed;margin-top:2px}
+.info-folder-body{max-height:0;overflow:hidden;transition:max-height .5s cubic-bezier(.22,.61,.36,1)}
+.info-folder-body.open{max-height:none;overflow:visible}
+.info-content{padding:0 16px 16px;font-size:.82rem;color:#374151;line-height:1.65}
+.info-content h5{font-size:.9rem;font-weight:700;color:var(--purple-txt);margin:16px 0 6px;padding-top:10px;border-top:1px solid rgba(139,92,246,.15)}
+.info-content h5:first-child{border-top:none;margin-top:0;padding-top:0}
+.info-content p{margin-bottom:8px}
+.info-content a{color:var(--blue);font-weight:600}
+
 .modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0);z-index:100;display:flex;align-items:center;justify-content:center;pointer-events:none;transition:background .25s ease}
 .modal-bg.open{background:rgba(0,0,0,.7);pointer-events:auto}
 .modal-box{background:#000;border-radius:14px;overflow:hidden;width:min(92vw,800px);box-shadow:0 20px 60px rgba(0,0,0,.4);transform:scale(.92);opacity:0;transition:transform .3s cubic-bezier(.22,.61,.36,1),opacity .25s ease}
@@ -126,17 +135,14 @@ a{color:var(--blue)}
 .modal-top button:hover{color:#fff}
 .modal-frame{width:100%;aspect-ratio:16/9;border:none;display:block}
 
-/* ====== PRINT ====== */
 @media print{
   body{background:#fff!important}
-  .header,.login-card,.routine-actions,.wa-btn,.desc-box,.no-print{display:none!important}
+  .header,.login-card,.routine-actions,.wa-btn,.desc-box,.no-print,.info-folder,.tip,.greeting{display:none!important}
   .card{box-shadow:none;padding:0}
   .day-body{max-height:none!important;overflow:visible!important}
-  .day-header .arrow{display:none}
+  .day-header .arrow,.day-count{display:none}
   .superset{box-shadow:none}
 }
-
-/* ====== MOBILE ====== */
 @media(max-width:640px){
   .header h1{font-size:1.3rem}
   .ex-top{flex-direction:column;align-items:flex-start}
@@ -146,7 +152,6 @@ a{color:var(--blue)}
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <h1><a href="https://www.instagram.com/nutricionfitust/" target="_blank" rel="noopener">NUTRICIONFITUST</a></h1>
   <h2>Entrenamientos Personalizados</h2>
@@ -154,7 +159,6 @@ a{color:var(--blue)}
 </div>
 
 <div class="main">
-
   <!-- LOGIN -->
   <div class="card login-card" id="loginCard">
     <div class="login-icon">
@@ -173,25 +177,23 @@ a{color:var(--blue)}
   <!-- ROUTINE -->
   <div class="card" id="routineCard" style="display:none">
     <div class="routine-header">
-      <div>
-        <h3 id="routineTitle"></h3>
-        <div class="meta" id="routineMeta"></div>
-      </div>
+      <h3 id="routineTitle"></h3>
       <div class="routine-actions">
-        <button onclick="window.print()" title="Imprimir / PDF">🖨️ PDF</button>
+        <button onclick="window.print()">🖨️ PDF</button>
         <button id="logoutBtn">Cerrar sesión</button>
       </div>
     </div>
+    <div class="greeting" id="greeting"></div>
+    <p class="tip">Tip: tocá el nombre del ejercicio para ver el video.</p>
     <div id="routineBody"></div>
   </div>
-
 </div>
 
 <!-- VIDEO MODAL -->
 <div class="modal-bg" id="videoModal">
   <div class="modal-box">
     <div class="modal-top"><button id="videoClose">✕</button></div>
-    <iframe class="modal-frame" id="videoFrame" allow="autoplay; encrypted-media; fullscreen" allowfullscreen></iframe>
+    <iframe class="modal-frame" id="videoFrame" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="no-referrer"></iframe>
   </div>
 </div>
 
@@ -199,13 +201,11 @@ a{color:var(--blue)}
 <script>
 /* ============================================================
    NFU Training App · Vista del alumno
-   Configuración: reemplazá estos valores con los de tu proyecto
-   (Supabase → Project Settings → API)
+   Reemplazá estos valores con los de tu proyecto Supabase
    ============================================================ */
 const SUPABASE_URL = 'https://rrcfwlqflheeljylggse.supabase.co';
 const SUPABASE_KEY = 'sb_publishable_gLaYMq53a13FOVlKNZ5J4Q_z9_qrTR5';
 
-/* Si no están configurados, pedir al usuario (fallback para desarrollo) */
 let sb;
 function initSupabase(){
   let url=SUPABASE_URL, key=SUPABASE_KEY;
@@ -219,9 +219,8 @@ function initSupabase(){
   return true;
 }
 
-let EJERCICIOS_DB = {}; // {nombre: {descripcion, video_url}}
+let EJERCICIOS_DB = {};
 
-/* ---------- LOGIN ---------- */
 document.getElementById('loginBtn').onclick=login;
 document.getElementById('passInput').addEventListener('keydown',e=>{if(e.key==='Enter')login();});
 
@@ -235,12 +234,9 @@ async function login(){
     const {data,error}=await sb.rpc('get_rutina_por_password',{p_password:pass});
     if(error) throw error;
     if(!data||!data.length){err.textContent='Contraseña incorrecta. Verificá e intentá de nuevo.';return;}
-    // cargar catálogo de ejercicios para descripciones
     await loadEjerciciosDB();
     showRoutine(data[0]);
-  }catch(e){
-    err.textContent='Error de conexión: '+e.message;
-  }
+  }catch(e){err.textContent='Error de conexión: '+e.message;}
 }
 
 async function loadEjerciciosDB(){
@@ -259,77 +255,91 @@ document.getElementById('logoutBtn').onclick=()=>{
 /* ---------- SHOW ROUTINE ---------- */
 function showRoutine(r){
   document.getElementById('loginCard').style.display='none';
-  const rc=document.getElementById('routineCard');
-  rc.style.display='';
+  document.getElementById('routineCard').style.display='';
   document.getElementById('routineTitle').textContent=r.rutina_nombre||'Mi Plan de Entrenamiento';
-  document.getElementById('routineMeta').textContent=`${r.alumno_nombre||''} · ${r.carpeta||''}`;
+
+  // greeting with name
+  const apodo = extractApodo(r.rutina_nombre, r.alumno_nombre);
+  document.getElementById('greeting').innerHTML=
+    `<strong>¡Hola ${esc(apodo)}! 👋</strong>
+    Este es tu plan de entrenamiento personalizado. Seleccioná el día para ver los ejercicios.<br>💪 ¡Vamos por esos objetivos!`;
+
   const plan=r.plan||{dias:[]};
   const body=document.getElementById('routineBody');
   body.innerHTML='';
+
   (plan.dias||[]).forEach((dia,di)=>{
+    const exCount=countExercises(dia);
     const dayEl=document.createElement('div');dayEl.className='day';
     dayEl.innerHTML=`<div class="day-header" data-day="${di}">
       <span class="arrow">▶</span>
       <h4>${esc(dia.nombre||'Día '+(di+1))}</h4>
+      <span class="day-count">${exCount} ejercicio${exCount!==1?'s':''}</span>
     </div>
     <div class="day-body" id="dayBody${di}"><div class="day-body-inner">${renderDia(dia)}</div></div>`;
     body.appendChild(dayEl);
   });
-  // first day open
+
+  // Más información folder
+  body.innerHTML += renderMasInformacion();
+
   const first=body.querySelector('.day-header');
   if(first) toggleDay(first);
-  // wire day toggles
   body.querySelectorAll('.day-header').forEach(h=>h.onclick=()=>toggleDay(h));
-  // wire descriptions
-  body.querySelectorAll('.desc-box').forEach(el=>el.onclick=()=>{
-    const panel=el.querySelector('.desc-panel');
-    panel.classList.toggle('open');
-  });
-  // wire videos
-  body.querySelectorAll('[data-video]').forEach(el=>el.onclick=e=>{
-    e.stopPropagation();
-    openVideo(el.dataset.video);
-  });
+  body.querySelectorAll('.desc-box').forEach(el=>el.onclick=()=>{el.querySelector('.desc-panel').classList.toggle('open');});
+  body.querySelectorAll('[data-video]').forEach(el=>el.onclick=e=>{e.stopPropagation();openVideo(el.dataset.video);});
+  // info folder toggle
+  const ifh=body.querySelector('.info-folder-header');
+  if(ifh) ifh.onclick=()=>{
+    ifh.classList.toggle('open');
+    const b=ifh.nextElementSibling;
+    b.classList.toggle('open');
+    if(b.classList.contains('open')) b.style.maxHeight=b.scrollHeight+'px'; else b.style.maxHeight='0';
+  };
   window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function extractApodo(rutinaNombre, alumnoNombre){
+  const pre='Mi Plan de Entrenamiento - ';
+  if(rutinaNombre&&rutinaNombre.startsWith(pre)){
+    return rutinaNombre.slice(pre.length);
+  }
+  return alumnoNombre||'';
+}
+
+function countExercises(dia){
+  let n=0;
+  (dia.secciones||[]).forEach(sec=>{
+    (sec.items||[]).forEach(item=>{n+=item.ejercicios?item.ejercicios.length:0;});
+  });
+  return n;
 }
 
 function toggleDay(header){
   const isOpen=header.classList.contains('open');
-  // close all
-  document.querySelectorAll('.day-header').forEach(h=>{h.classList.remove('open');});
+  document.querySelectorAll('.day-header').forEach(h=>h.classList.remove('open'));
   document.querySelectorAll('.day-body').forEach(b=>{b.classList.remove('open');b.style.maxHeight='0';});
   if(!isOpen){
     header.classList.add('open');
     const body=header.nextElementSibling;
     body.classList.add('open');
     body.style.maxHeight=body.scrollHeight+'px';
-    // re-measure after images/content load
     setTimeout(()=>{if(body.classList.contains('open'))body.style.maxHeight=body.scrollHeight+'px';},400);
   }
 }
 
-function renderDia(dia){
-  return (dia.secciones||[]).map(sec=>renderSeccion(sec)).join('');
-}
+function renderDia(dia){return (dia.secciones||[]).map(sec=>renderSeccion(sec)).join('');}
 
 function renderSeccion(sec){
   let color='green';
   if(/fuerza/i.test(sec.nombre)) color='red';
   if(/hiit/i.test(sec.nombre)) color='yellow';
-  let html=`<div class="section ${color}">
-    <div class="sec-header ${color}">${esc(sec.nombre)}</div>`;
+  let html=`<div class="section ${color}"><div class="sec-header ${color}">${esc(sec.nombre)}</div>`;
   (sec.items||[]).forEach(item=>{
-    if(item.tipo==='superset'&&item.ejercicios.length>1){
-      html+=renderSuperset(item);
-    }else{
-      (item.ejercicios||[]).forEach(ex=>{
-        html+=renderExercise(ex,item.descanso);
-      });
-    }
+    if(item.tipo==='superset'&&item.ejercicios&&item.ejercicios.length>1) html+=renderSuperset(item);
+    else (item.ejercicios||[]).forEach(ex=>{html+=renderExercise(ex,item.descanso);});
   });
-  if(/hiit/i.test(sec.nombre)&&sec.infoHIIT){
-    html+=`<div class="hiit-info"><strong>Más información de HIIT</strong>${esc(sec.infoHIIT)}</div>`;
-  }
+  if(/hiit/i.test(sec.nombre)&&sec.infoHIIT) html+=`<div class="hiit-info"><strong>Más información de HIIT</strong>${esc(sec.infoHIIT)}</div>`;
   html+='</div>';
   return html;
 }
@@ -339,18 +349,8 @@ function renderSuperset(item){
   const label=n===2?'Biserie':n===3?'Triserie':n>3?'Multiserie':'Serie compuesta';
   let inner=item.ejercicios.map(ex=>renderExercise(ex,null,true)).join('');
   let rest='';
-  if(item.descanso){
-    let r=item.descanso.trim();
-    if(!/^descanso/i.test(r)) r='Descanso '+r;
-    rest=`<div style="text-align:right;margin-top:8px"><span class="badge-rest">${esc(r)}</span></div>`;
-  }
-  return `<div class="superset">
-    <div class="superset-head">
-      <div class="superset-label">${label}</div>
-      <div class="superset-sub">Sin descanso entre ejercicios</div>
-    </div>
-    ${inner}${rest}
-  </div>`;
+  if(item.descanso){let r=item.descanso.trim();if(!/^descanso/i.test(r))r='Descanso '+r;rest=`<div style="text-align:right;margin-top:8px"><span class="badge-rest">${esc(r)}</span></div>`;}
+  return `<div class="superset"><div class="superset-head"><div class="superset-label">${label}</div><div class="superset-sub">Sin descanso entre ejercicios</div></div>${inner}${rest}</div>`;
 }
 
 function renderExercise(ex,descanso,inSuperset){
@@ -358,20 +358,12 @@ function renderExercise(ex,descanso,inSuperset){
   const videoUrl=db.video_url||'';
   const desc=db.descripcion||'';
   const repsFormatted=formatReps(ex.reps);
-  const uid='d'+Math.random().toString(36).slice(2,8);
   let restHtml='';
-  if(descanso&&!inSuperset){
-    let r=descanso.trim();
-    if(!/^descanso/i.test(r)) r='Descanso '+r;
-    restHtml=`<span class="badge-rest">${esc(r)}</span>`;
-  }
-  const videoBtn=videoUrl?`<button data-video="${escAttr(videoUrl)}" style="background:transparent;border:none;font-size:1rem;cursor:pointer;flex:none" title="Ver video">🎬</button>`:'';
-  return `<div class="ex-card">
+  if(descanso&&!inSuperset){let r=descanso.trim();if(!/^descanso/i.test(r))r='Descanso '+r;restHtml=`<span class="badge-rest">${esc(r)}</span>`;}
+  const clickAttr=videoUrl?`data-video="${escAttr(videoUrl)}"`:'';
+  return `<div class="ex-card" ${clickAttr}>
     <div class="ex-top">
-      <div style="display:flex;align-items:center;gap:8px;flex:1;min-width:0">
-        ${videoBtn}
-        <span class="ex-name">${esc(ex.nombre)}</span>
-      </div>
+      <span class="ex-name">${esc(ex.nombre)}</span>
       <div class="ex-pills">
         ${ex.series?`<span class="pill-series">Series: ${esc(ex.series)}</span>`:''}
         ${repsFormatted?`<span class="pill-reps">Reps: ${repsFormatted}</span>`:''}
@@ -379,18 +371,75 @@ function renderExercise(ex,descanso,inSuperset){
       </div>
     </div>
     ${ex.nota?`<div class="ex-nota">📝 ${esc(ex.nota)}</div>`:''}
-    ${desc?`<div class="desc-box">
+    ${desc?`<div class="desc-box" onclick="event.stopPropagation()">
       <button class="dots-btn" type="button"><span class="dot"></span><span class="dot"></span><span class="dot"></span></button>
       <div class="desc-panel"><div><div class="desc-text">${esc(desc)}</div></div></div>
     </div>`:''}
   </div>`;
 }
 
-/* format reps: "12 10 8" → "12• 10• 8", preserves (10+8) and ↑↓ */
 function formatReps(reps){
   if(!reps) return '';
-  const r=reps.trim();
-  return esc(r).replace(/(\S+)\s+/g,'$1• ');
+  return esc(reps.trim()).replace(/(\S+)\s+/g,'$1• ');
+}
+
+/* ---------- MÁS INFORMACIÓN ---------- */
+function renderMasInformacion(){
+  return `<div class="info-folder">
+    <div class="info-folder-header">
+      <span class="arrow">▶</span>
+      <div><h4>Más información</h4><p>Notas útiles, explicaciones de RIR, aproximaciones y recomendaciones generales</p></div>
+    </div>
+    <div class="info-folder-body">
+      <div class="info-content">
+<h5>Guía rápida: RIR, fallo, dropsets y más</h5>
+<p><strong>¿Qué significa RIR?</strong> Repeticiones En Reserva.</p>
+<p><strong>RIR 1:</strong> significa que al terminar la serie sentís que podrías haber hecho 1 repetición más antes de llegar al fallo.</p>
+<p><strong>RIR 2:</strong> significa que al terminar la serie sentís que podrías haber hecho 2 repeticiones más antes de llegar al fallo.</p>
+<p><strong>RIR 0 = fallo muscular,</strong> PERO pudiendo completar la serie... No podrías hacer ninguna otra repetición.</p>
+<p><strong>¿Qué es el Fallo?</strong> Llegar al fallo significa no poder completar ni una repetición más aunque lo intentes.</p>
+<p>La idea principal es que siempre trates de llegar al número de repeticiones que tenés marcadas. Si te puse 10 y llegás a 10 y no podés hacer ni una más → perfecto (RIR 0). Si llegás a 10 y sentís que podrías hacer una más (11), pero no llegarías a 12 → también está perfecto (RIR 1). Si te puse 10, llegás hasta 9 bien y fallás la última, también cuenta (RIR -1).</p>
+<p>En todos estos casos, lo que importa es que estás trabajando con la intensidad justa y el peso correcto para el rango de repeticiones que buscamos. Esto sirve para que aproveches al máximo el trabajo de cada serie, reclutando la mayor cantidad de fibras musculares posible.</p>
+
+<h5>¿Qué son las Dropsets?</h5>
+<p>Son una técnica donde al llegar al fallo con un peso, bajás la carga inmediatamente y seguís haciendo repeticiones hasta llegar de nuevo al fallo.</p>
+<p>Ejemplo: si ves en la rutina <strong>(10+↓8)</strong>, significa que hacés 10 repeticiones al fallo, bajás un poco el peso y hacés 8 repeticiones más, también al fallo. Si ves <strong>(fallo+↓fallo)</strong> tratá de hacer un rango de repeticiones de (16+↓12). A matar 🔥.</p>
+
+<h5>¿Qué son las Series Ondulantes?</h5>
+<p>Es una técnica avanzada donde arrancás con un peso alto para reclutar el máximo número de fibras musculares y generar una fuerte activación neuromuscular. Luego bajás la carga y continuás con más repeticiones, aprovechando esa activación previa para lograr un estímulo más profundo y completo sobre el músculo 🔥.</p>
+<p>Ejemplo: si ves en la rutina <strong>↑10• ↓12• 10• ↓8</strong>, significa que hacés 10 repeticiones pesadas con carga alta, luego bajás el peso y hacés 12 repeticiones más. Posteriormente la siguiente serie será de 10 repeticiones con el mismo peso que la serie anterior. Y en la siguiente bajarás el peso y harás 8 reps.</p>
+
+<h5>¿Qué son las Series Descendentes?</h5>
+<p>Las series descendentes son un método en el que, a medida que avanzan las series de un mismo ejercicio, se reduce progresivamente la carga (el peso utilizado), respetando los descansos normales entre series.</p>
+<p>En cada nueva serie se disminuye la carga un 5–15 % (aproximadamente), pudiendo mantener, aumentar o reducir el número de repeticiones según el estado de fatiga. Esto permite continuar estimulando las fibras musculares sin comprometer la técnica ni la recuperación.</p>
+<p>Este tipo de progresión descendente favorece la resistencia muscular, mejora la tolerancia a la fatiga y mantiene un alto nivel de activación incluso en las últimas series.</p>
+
+<h5>Aproximaciones</h5>
+<p>Cuando se indican, por ejemplo: <strong>aproximaciones-12• 12• 10• 8</strong>, significa que antes de esas series efectivas tenés que hacer una o dos series de aproximación (calentamiento con carga progresiva), según cómo sientas tus músculos.</p>
+<p>No son al fallo, ni tampoco cuentan como series principales. La idea es ir preparando al músculo y al sistema nervioso para el peso de trabajo. Hacer entre 12 a 16 repeticiones usando pesos moderados, subiendo hasta acercarte a tu carga real de trabajo.</p>
+<p>Ejemplo práctico: si tu peso de trabajo es 100 kg, podés hacer una serie de 16 repes con 60 kg, otra de 12 con 80 kg y después ya arrancás con tus series efectivas (12• 12• 10• 8).</p>
+
+<h5>Recomendaciones generales</h5>
+<p><strong>LISS:</strong> (caminar, bici suave, cinta inclinada) en días posteriores a entrenamientos de piernas, para mejorar circulación y favorecer recuperación. Si no podés, hacelo después de entrenar piernas, nunca antes. Si recién arrancás con carrera continua, máximo ~4 km para no sobreexigir.</p>
+<p><strong>Estiramiento:</strong> Gemelos, isquiotibiales, cuádriceps y pectorales crecen muy bien si uno prioriza su estiramiento. Enfatizá en la fase de estiramiento y luego realizá una contracción explosiva.</p>
+<p><strong>Calzado:</strong> En el día de piernas usá calzado plano. Esto te da más seguridad y estabilidad, mejor agarre, mejor posición, una aplicación de fuerza más eficiente y mejores resultados.</p>
+<p><strong>Calentamiento previo:</strong> Antes de cada entrenamiento, hacé 5-10 minutos de movilidad articular junto con los ejercicios de Calentamiento y Acondicionamiento.</p>
+
+<h5>Movimiento diario y NEAT</h5>
+<p>Mantené un mínimo de 7.000 a 10.000 pasos diarios. Incorporá pausas activas si tenés un trabajo sedentario. El NEAT es fundamental para mantener un buen gasto calórico diario, mejorar la circulación y la salud en general.</p>
+
+<h5>Hidratación y Recuperación</h5>
+<p><strong>Agua:</strong> 35 a 40 ml por kilo de peso corporal, más si entrenás fuerte o consumís creatina. Evitá el exceso de alcohol y bebidas azucaradas. Priorizá un buen descanso: mínimo 7-8 horas de sueño. El músculo crece y se recupera durmiendo.</p>
+
+<h5>Alimentación y Nutrición</h5>
+<p>Mantené una ingesta adecuada y distribuida en el día. Si querés un plan nutricional para maximizar tus ganancias, enviame un 👉🏻 <a href="https://wa.me/message/WP44MHI4JKZRK1" target="_blank" rel="noopener">mensaje directo</a>.</p>
+
+<h5>Composición Corporal y Antropometría</h5>
+<p>Con una evaluación antropométrica ISAK podés conocer tu composición corporal real: estimación de % de tejido muscular, % de tejido adiposo, distribución de grasa, y tu somatotipo. También se evalúa tu estructura ósea para interpretar tu potencial de ganancia muscular natural.</p>
+<p>Si te ubicás en CABA, Argentina 🇦🇷, y querés una evaluación completa, enviame un 👉🏻 <a href="https://wa.me/message/WP44MHI4JKZRK1" target="_blank" rel="noopener">mensaje directo</a>.</p>
+      </div>
+    </div>
+  </div>`;
 }
 
 /* ---------- VIDEO MODAL ---------- */
@@ -406,12 +455,12 @@ function closeVideo(){
 }
 document.getElementById('videoClose').onclick=closeVideo;
 document.getElementById('videoModal').onclick=e=>{if(e.target.id==='videoModal')closeVideo();};
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeVideo();});
 
 /* ---------- HELPERS ---------- */
 function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
 function escAttr(s){return (s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;');}
 
-/* ---------- AUTO INIT ---------- */
 initSupabase();
 </script>
 </body>
