@@ -279,7 +279,7 @@ function showFolders(){
     f.onclick=()=>openDay(di);
     fv.appendChild(f);
   });
-  fv.innerHTML+=renderMasInformacion();
+  fv.insertAdjacentHTML('beforeend', renderMasInformacion());
   wireInfoFolder();
 }
 
