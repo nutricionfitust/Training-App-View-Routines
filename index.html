@@ -145,6 +145,7 @@ a{color:var(--blue)}
 .modal-top button{background:transparent;border:none;color:rgba(255,255,255,.7);font-size:1.1rem;padding:4px 8px}
 .modal-top button:hover{color:#fff}
 .modal-frame{width:100%;aspect-ratio:16/9;border:none;display:block}
+.modal-video{width:100%;max-height:80vh;background:#000;display:block}
 
 @media print{
   body{background:#fff!important}
@@ -208,7 +209,8 @@ a{color:var(--blue)}
 <div class="modal-bg" id="videoModal">
   <div class="modal-box">
     <div class="modal-top"><button id="videoClose">✕</button></div>
-    <iframe class="modal-frame" id="videoFrame" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="no-referrer"></iframe>
+    <video class="modal-video" id="videoPlayer" controls playsinline style="display:none"></video>
+    <iframe class="modal-frame" id="videoFrame" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share" allowfullscreen referrerpolicy="no-referrer" style="display:none"></iframe>
   </div>
 </div>
 
@@ -459,14 +461,29 @@ function printPDF(){
 
 /* ========== VIDEO ========== */
 function openVideo(url){
-  const m=url.match(/\/d\/([a-zA-Z0-9_-]+)/);
-  const src=m?'https://drive.google.com/file/d/'+m[1]+'/preview':url;
-  document.getElementById('videoFrame').src=src;
+  const frame=document.getElementById('videoFrame');
+  const video=document.getElementById('videoPlayer');
+  frame.style.display='none'; frame.src='';
+  video.style.display='none'; video.src='';
+
+  if(url&&url.includes('res.cloudinary.com')){
+    // Cloudinary: native video player
+    video.style.display='block';
+    video.src=url;
+  }else{
+    // Drive: iframe embed
+    const m=url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+    frame.src=m?'https://drive.google.com/file/d/'+m[1]+'/preview':url;
+    frame.style.display='block';
+  }
   requestAnimationFrame(()=>document.getElementById('videoModal').classList.add('open'));
 }
 function closeVideo(){
   document.getElementById('videoModal').classList.remove('open');
-  setTimeout(()=>document.getElementById('videoFrame').src='',300);
+  setTimeout(()=>{
+    const v=document.getElementById('videoPlayer');v.pause();v.src='';v.style.display='none';
+    document.getElementById('videoFrame').src='';document.getElementById('videoFrame').style.display='none';
+  },300);
 }
 document.getElementById('videoClose').onclick=closeVideo;
 document.getElementById('videoModal').onclick=e=>{if(e.target.id==='videoModal')closeVideo();};
